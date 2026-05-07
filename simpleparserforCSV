@@ -1,0 +1,28 @@
+# CSV login logs
+
+logs = [
+    "timestamp,user,ip,status",
+    "2026-04-29 10:22:01,admin,10.0.0.1,FAILED",
+    "2026-04-29 10:25:10,root,8.8.8.8,SUCCESS",
+    "2026-04-29 10:30:11,admin,10.0.0.1,FAILED"
+]
+
+# Step 1: Extract column names
+columns = logs[0].split(",")
+
+# Step 2: Extract data rows
+data_rows = logs[1:]
+
+# Step 3: Loop through each row
+for i in data_rows:
+
+    # Split row into values
+    value = i.split(",")
+
+    # Convert row into dictionary
+    new_dict = dict(zip(columns, value))
+
+    # Pattern matching detection
+    if new_dict['user'] == 'admin' and new_dict['status'] == 'FAILED':
+
+        print(new_dict)
