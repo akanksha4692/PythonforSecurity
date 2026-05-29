@@ -5,3 +5,14 @@ if "Failed" in log:
 
 elif "Accepted" in log:
     result["action"] = "successful_login"
+
+#Failed password for Invalid user
+
+if "invalid" in parts:
+    user_index=parts.index("user")
+    user = parts[user_index + 1]
+else:
+    user_index = parts.index("for")
+    user = parts[user_index + 1]
+    
+
