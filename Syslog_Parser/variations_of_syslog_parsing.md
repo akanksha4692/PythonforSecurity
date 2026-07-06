@@ -14,5 +14,13 @@ if "invalid" in parts:
 else:
     user_index = parts.index("for")
     user = parts[user_index + 1]
+
+#If there is no port number
+
+if "port" not in parts:
+    result["port"] = "Unknown"
+else:
+    port_index = parts.index("port")
+    result["port"] = parts[port_index + 1]
     
 
